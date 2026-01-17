@@ -1,5 +1,7 @@
 package day32_IntroductionToArray;
 
+import java.util.ArrayList;
+
 public class GoodPair {
 
 //	Problem Description
@@ -66,6 +68,17 @@ public class GoodPair {
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
                 if(A[i]+A[j] == B)
+                return 1;
+            }
+        }
+        return 0;
+    }
+	//Java 1.8
+	public int solve(ArrayList<Integer> A, int B) {
+        int n= A.size();
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(A.get(i)+A.get(j) == B)
                 return 1;
             }
         }

@@ -1,5 +1,7 @@
 package day32_IntroductionToArray;
 
+import java.util.ArrayList;
+
 public class MaxMinOfArray {
 
 //	Problem Description
@@ -57,6 +59,22 @@ public class MaxMinOfArray {
             if(A[i]> max)
             {
                 max=A[i];
+            }
+        }
+        return max+min;
+    }
+	//java 1.8
+	public int solve(ArrayList<Integer> A) {
+        
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int i=0; i < A.size(); i++){
+            if(A.get(i)<min){
+                min=A.get(i);
+            }
+            if(A.get(i)> max)
+            {
+                max=A.get(i);
             }
         }
         return max+min;
