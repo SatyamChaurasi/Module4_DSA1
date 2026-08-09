@@ -1,5 +1,7 @@
 package day32_IntroductionToArray;
 
+import java.util.Arrays;
+
 public class Second_Largest {
 //	Problem Description
 //	You are given an integer array A. You have to find the second largest element/value in the array or report that no such element exists.
@@ -36,6 +38,8 @@ public class Second_Largest {
 	public static void main(String[] args) {
 		int A [] = {2, 1, 2,3,4,7};
 		System.out.println(solve(A));
+		System.out.println(solveStream(A));
+		
 	}
 	public static int solve(int []A) {
 		int length = A.length;
@@ -53,6 +57,23 @@ public class Second_Largest {
 			}
 		}
 		return (sMax ==Integer.MIN_VALUE)?-1:sMax;
+	}
+	//using Stream API
+	public static int solveStream(int[]A) {
+//		Arrays.stream(A)
+//		.distinct()
+//		.boxed()
+//		.sorted((a,b)->Integer.compare(b, a))
+//		.skip(2)
+//		.findFirst()
+//		.ifPresent(System.out::print);
+		return Arrays.stream(A)
+				.distinct()
+				.boxed()
+				.sorted((a,b)->Integer.compare(b, a))
+				.skip(2)
+				.findFirst()
+				.orElse(-1);
 	}
 
 }
